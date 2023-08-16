@@ -6,6 +6,7 @@ const app=require('../app')
 const URL_BASE='/api/v1/users'
 let TOKEN
 let userId
+//inicio 
 beforeAll(async()=>{
     const user={
         email:'kycaquimbo',
