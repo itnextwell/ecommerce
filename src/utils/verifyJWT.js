@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const verifyJwt = (req, res, next) => {
+    //da las dos opciones por si es mayuscula o minuscula
     const authHeader = req.headers.authorization || req.headers.Authorization;
     if (!authHeader?.startsWith('Bearer ')) return res.sendStatus(401);
     const token = authHeader.split(' ')[1];
