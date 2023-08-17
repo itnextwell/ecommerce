@@ -69,3 +69,5 @@ test("DELETE -> 'URL_BASE/:id', should return status 204", async() => {
         expect(res.status).toBe(204)
 
   })
+
+  
