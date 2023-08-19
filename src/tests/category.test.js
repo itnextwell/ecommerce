@@ -51,7 +51,7 @@ test("GET-> 'URL_BASE',should return status 200 res.body to defined and res.body
    
     const res=await request(app)
     .get(URL_BASE)
-    console.log(res.body)
+    
 
     expect(res.status).toBe(200);
     expect(res.body).toBeDefined();
