@@ -12,39 +12,47 @@ let productBody
 let product
 let bodyCart
 
-beforeAll(async()=>{
-    const user={
-        email:'kycaquimbo',
-        password:'karla123'
-    }
 
-    const res=await request(app)
-    .post(URL_BASE_USER)
-    .send(user)
+// beforeAll(async()=>{
+//     const user={
+//         email:'kycaquimbo',
+//         password:'karla123'
+//     }
 
-    TOKEN=res.body.token
-    userId=res.body.user.id
+//     const res=await request(app)
+//     .post(URL_BASE_USER)
+//     .send(user)
+
+//     TOKEN=res.body.token
+//     userId=res.body.user.id
+
+//     productBody = {
+//         title: "productTest",
+//         description: "lorem20",
+//         price: 23
+//       }
+//       product = await Product.create(productBody)
     
-    //PRODUCT
-    // productBody={
-    //     title:'Xiaomi',
-    //     description:'celular de ram',
-    //     price:200.23
-        
-    // }
-    // product=await Product.create(productBody)
-
-    //CART 
-    // bodyCart={
-    //     quantity:1,
-    //     productId:product.id
-        
-    // }
-
-    // await Cart.create(bodyCart)
+//       //CART
+//       bodyCart = {
+//         quantity: 1,
+//         productId: product.id
+//       }
+//       await request(app)
+//         .post('/api/v1/cart')
+//         .send(bodyCart)
+//         .set("Authorization", `Bearer ${TOKEN}`)
+//     })
+    
+   
 
      
-})
+
+
+
+
+
+
 
 // test("POST-> 'URL_BASE', shouldd returnstatus code 201 and res.body.quantity===bodyCart.quantity", async() => { 
 
@@ -54,4 +62,6 @@ beforeAll(async()=>{
 
 //     expect(res.status).toBe(201)
 //    //expect(res.body.quantity).toBe(bodyCart.quantity)
+
+//    await product.destroy()
 //  })

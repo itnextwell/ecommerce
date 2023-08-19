@@ -6,7 +6,7 @@ const URL_BASE='/api/v1/categories'
 const URL_BASE_USERS='/api/v1/users'
 let TOKEN
 let categoryId
-
+let category
 
 beforeAll(async()=>{
     const user={
@@ -25,7 +25,7 @@ beforeAll(async()=>{
 //test delete
 
 test("POST-> 'URL_BASE',should return status 201 and res.body.name==category.name", async() => {
-    const category={
+    category={
         name:'tecno'
     }
 
@@ -51,7 +51,7 @@ test("GET-> 'URL_BASE',should return status 200 res.body to defined and res.body
    
     const res=await request(app)
     .get(URL_BASE)
-    
+    console.log(res.body)
 
     expect(res.status).toBe(200);
     expect(res.body).toBeDefined();
@@ -68,6 +68,8 @@ test("DELETE -> 'URL_BASE/:id', should return status 204", async() => {
         .set('Authorization',`Bearer ${TOKEN}`)
 
         expect(res.status).toBe(204)
+
+        
 
         
 

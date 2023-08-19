@@ -79,7 +79,8 @@ test("GET FILTER-> 'URL_BASE', should return status 200 an res.body.length===1, 
     expect(res.status).toBeDefined();
     expect(res.body).toHaveLength(1);
     expect(res.body[0].category).toBeDefined()
-    expect(res.body[0].id).toBe(category.id)
+    //expect(res.body[0].id).toBe(category.id)
+    expect(res.body[0].category.id).toBe(category.id)
     
     
 })
