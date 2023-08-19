@@ -52,6 +52,7 @@ test("GET-> 'URL_BASE',should return status 200 res.body to defined and res.body
     const res=await request(app)
     .get(URL_BASE)
     
+
     expect(res.status).toBe(200);
     expect(res.body).toBeDefined();
     expect(res.body).toHaveLength(1);
@@ -67,6 +68,8 @@ test("DELETE -> 'URL_BASE/:id', should return status 204", async() => {
         .set('Authorization',`Bearer ${TOKEN}`)
 
         expect(res.status).toBe(204)
+
+        
 
   })
 

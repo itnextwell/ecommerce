@@ -49,7 +49,7 @@ test("POST-> 'URL_BASE', should return status 201 an res.body.title===product.ti
     expect(res.body).toBeDefined()
     expect(res.body.title).toBe(product.title)
     
-    await category.destroy()
+    //await category.destroy()
 })
 
 
@@ -57,10 +57,29 @@ test("GET ALL-> 'URL_BASE', should return status 200 an res.body.length===1", as
     const res=await request(app)
     .get(URL_BASE)
     
+    //console.log(res.body[0].id)
+    //console.log(res.body[0])
 
     expect(res.status).toBe(200);
     expect(res.status).toBeDefined();
     expect(res.body).toHaveLength(1);
+    expect(res.body[0].category).toBeDefined()
+    //expect(res.body[0].id).toBe(category.id)
+    expect(res.body[0].category.id).toBe(category.id)
+
+    
+    
+})
+test("GET FILTER-> 'URL_BASE', should return status 200 an res.body.length===1, res.body[0].category to be defined and res.body[0].category", async() => { 
+    const res=await request(app)
+    .get(`${URL_BASE}?category=${category.id}`)
+    
+
+    expect(res.status).toBe(200);
+    expect(res.status).toBeDefined();
+    expect(res.body).toHaveLength(1);
+    expect(res.body[0].category).toBeDefined()
+    expect(res.body[0].id).toBe(category.id)
     
     
 })
