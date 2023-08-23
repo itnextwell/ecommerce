@@ -1,6 +1,7 @@
 const request=require("supertest")
 const app=require('../app')
 const Category = require("../models/Category")
+const ProductImg = require("../models/ProductImg")
 
 require('../models')
 
@@ -11,6 +12,7 @@ let TOKEN
 let product
 let category
 let productId
+let image
 beforeAll(async()=>{
     const user={
         email:'kycaquimbo',
@@ -121,6 +123,24 @@ test("GET ONE -> 'URL_BASE/:id', should resturn status code 200 and res.body.tit
     
 })
 
+test("POST -> 'URL_BASE/:id/images', should return status code 200 and res.body.length ===1", async () => {
+    const imgBody = {
+      url: "nueva",
+      filename: "foto"
+    }
+  
+   image=await ProductImg.create(imgBody)
+
+    const res = await request(app)
+      .post(`${URL_BASE}/${productId}/images`)
+      .send([image.id])
+      .set('Authorization',`Bearer ${TOKEN}`)
+    console.log(`${URL_BASE}/${productId}/images`)
+      expect(res.status).toBe(200)
+    expect(res.body).toBeDefined()
+    expect(res.body).toHaveLength(1)
+  })
+
 test("DELETE-> 'URL_BASE/id', should return status 204", async() => { 
     const productUpdate={
         title:'Samsung'
@@ -135,4 +155,5 @@ test("DELETE-> 'URL_BASE/id', should return status 204", async() => {
     
     
     await category.destroy()
+    await image.destroy()
 })
