@@ -26,7 +26,7 @@ test('GET ALL -> URL_BASE, should return status code 200, res.body to defined an
     .set('Authorization',`Bearer ${TOKEN}`)
 
     expect(res.status).toBe(200);
-    expect(res.status).toBeDefined();
+    expect(res.body).toBeDefined();
     expect(res.body).toHaveLength(1);
     expect(res.body.length).toBe(1)
     

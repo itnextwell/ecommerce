@@ -63,7 +63,7 @@ test("GET ALL-> 'URL_BASE', should return status 200 an res.body.length===1", as
     //console.log(res.body[0])
 
     expect(res.status).toBe(200);
-    expect(res.status).toBeDefined();
+    expect(res.body).toBeDefined();
     expect(res.body).toHaveLength(1);
     expect(res.body[0].category).toBeDefined()
     //expect(res.body[0].id).toBe(category.id)
@@ -78,7 +78,7 @@ test("GET FILTER-> 'URL_BASE', should return status 200 an res.body.length===1, 
     
 
     expect(res.status).toBe(200);
-    expect(res.status).toBeDefined();
+    expect(res.body).toBeDefined();
     expect(res.body).toHaveLength(1);
     expect(res.body[0].category).toBeDefined()
     //expect(res.body[0].id).toBe(category.id)
@@ -135,8 +135,8 @@ test("POST -> 'URL_BASE/:id/images', should return status code 200 and res.body.
       .post(`${URL_BASE}/${productId}/images`)
       .send([image.id])
       .set('Authorization',`Bearer ${TOKEN}`)
-    console.log(`${URL_BASE}/${productId}/images`)
-      expect(res.status).toBe(200)
+    //console.log(`${URL_BASE}/${productId}/images`)
+    expect(res.status).toBe(200)
     expect(res.body).toBeDefined()
     expect(res.body).toHaveLength(1)
   })
@@ -148,8 +148,8 @@ test("DELETE-> 'URL_BASE/id', should return status 204", async() => {
     
     
     const res=await request(app)
-    .delete(`${URL_BASE}/${productId}`)
-    .set('Authorization',`Bearer ${TOKEN}`)
+      .delete(`${URL_BASE}/${productId}`)
+      .set('Authorization',`Bearer ${TOKEN}`)
     
     expect(res.status).toBe(204)
     
