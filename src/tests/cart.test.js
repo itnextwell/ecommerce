@@ -52,7 +52,7 @@ test("POST-> 'URL_BASE' should return status code 201 and res.body.quantity===bo
 
         expect(res.status).toBe(201)
         expect(res.body).toBeDefined()
-        expect(res.body.id).toBe(userId)
+        expect(res.body.userId).toBe(userId)
         
 
 })
